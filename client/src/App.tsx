@@ -15,7 +15,9 @@ function App() {
   }, []);
   return (
     <>
-      <div>Here's the data: {testApiData && testApiData.name}</div>
+      <div className="text-xl text-red-500">
+        Here's the data: {testApiData && testApiData.name}
+      </div>
       <div>testing update</div>
     </>
   );
