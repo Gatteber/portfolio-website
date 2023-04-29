@@ -1,11 +1,9 @@
 import {useState, useEffect} from 'react';
-
-interface testApiData {
-  name: 'string';
-}
+import {Route, Routes} from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
-  const [testApiData, setTestApiData] = useState<testApiData>();
+  const [testApiData, setTestApiData] = useState();
   const proxyUrl = '/api/v1';
 
   useEffect(() => {
@@ -14,12 +12,9 @@ function App() {
       .then((data) => setTestApiData(data));
   }, []);
   return (
-    <>
-      <div className="text-xl text-red-500">
-        Here's the data: {testApiData && testApiData.name}
-      </div>
-      <div>testing update</div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home data={testApiData} />} />
+    </Routes>
   );
 }
 
