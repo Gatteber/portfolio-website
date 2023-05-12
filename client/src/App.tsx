@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   const [testApiData, setTestApiData] = useState();
@@ -12,9 +13,12 @@ function App() {
       .then((data) => setTestApiData(data));
   }, []);
   return (
-    <Routes>
-      <Route path="/" element={<Home data={testApiData} />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home data={testApiData} />} />
+      </Routes>
+    </>
   );
 }
 
