@@ -13,12 +13,12 @@ function App() {
       .then((data) => setTestApiData(data));
   }, []);
   return (
-    <>
+    <div className="bg-zinc-100 dark:bg-zinc-700">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home data={testApiData} />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
