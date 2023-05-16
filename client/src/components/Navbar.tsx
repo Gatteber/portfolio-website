@@ -2,7 +2,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="text-slate-900 dark:text-slate-50">
       <ul>
         <li>Home</li>
         <li>Projects</li>
