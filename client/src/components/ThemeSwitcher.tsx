@@ -6,7 +6,7 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={() => setTheme(colorTheme)}
-      className="cursor-pointer text-slate-900 dark:text-slate-50"
+      className="cursor-pointer text-slate-900 dark:text-slate-50 outline outline-1 rounded-xl p-2"
       aria-label="color-theme"
     >
       {colorTheme === 'dark' ? (

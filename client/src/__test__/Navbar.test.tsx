@@ -1,6 +1,18 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Navbar from '../components/Navbar';
+import mediaQuery from 'css-mediaquery';
+
+const createMatchMedia = (width: number) => (query: string) => ({
+  matches: mediaQuery.match(query, {width}),
+  media: '',
+  onchange: () => undefined,
+  addListener: () => undefined,
+  removeListener: () => undefined,
+  addEventListener: () => undefined,
+  removeEventListener: () => undefined,
+  dispatchEvent: () => true,
+});
 
 describe('Navbar component', () => {
   it('has a Home, Projects, About, and Contact list', () => {
@@ -45,5 +57,15 @@ describe('Navbar component', () => {
     await userEvent.click(themeSwitchEl);
     const svgEl = screen.getByTitle('moon');
     expect(svgEl).toBeInTheDocument();
+  });
+
+  test('clicking the hamburger menu renders', () => {
+    //simulate window inner width at mobile size. no media query?
+    window.innerWidth = 500;
+    render(<Navbar />);
+    const hamburgerEl = screen.getByRole('button', {
+      name: /hamburger-menu/i,
+    });
+    expect(hamburgerEl).toBeInTheDocument();
   });
 });
