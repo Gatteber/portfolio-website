@@ -4,7 +4,7 @@ interface Props {
 
 const ModalMenu = ({handleClick}: Props) => {
   return (
-    <div className="position: fixed top-0 right-0 w-full h-full z-100 bg-zinc-100 dark:bg-zinc-700 opacity-95 transition ease-in duration-1000 text-slate-700 dark:text-slate-50">
+    <div className="position: fixed top-0 right-0 w-full h-full z-100 bg-zinc-100 dark:bg-zinc-700 opacity-95 transition duration-500 text-slate-700 dark:text-slate-50">
       <div>
         <button onClick={handleClick} className="p-2 text-3xl">
           X

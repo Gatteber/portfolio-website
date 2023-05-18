@@ -59,7 +59,23 @@ describe('Navbar component', () => {
     expect(svgEl).toBeInTheDocument();
   });
 
-  test('clicking the hamburger menu renders', () => {
+  test('mode setting persists through screen resize', async () => {
+    render(<Navbar />);
+    const themeSwitchEl = screen.getByRole<HTMLInputElement>('button', {
+      name: /color-theme/i,
+    });
+    //theme switch persists, so we need to click twice to ensure it's dark theme.
+    await userEvent.click(themeSwitchEl);
+    await userEvent.click(themeSwitchEl);
+    //resize, re-render window
+    window.innerWidth = 500;
+    render(<Navbar />);
+    const svgEl = screen.getAllByTitle('moon')[0] as HTMLOrSVGElement;
+    console.log(svgEl);
+    expect(svgEl).toBeInTheDocument();
+  });
+
+  test('the hamburger menu renders at small screen size', () => {
     //simulate window inner width at mobile size. no media query?
     window.innerWidth = 500;
     render(<Navbar />);
