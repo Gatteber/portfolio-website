@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react';
-import {Route, Routes} from 'react-router-dom';
-import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -16,9 +18,10 @@ function App() {
   return (
     <div className="bg-zinc-100 dark:bg-zinc-700 transition duration-250">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home data={testApiData} />} />
-      </Routes>
+      <Home data={testApiData} />
+      <Projects />
+      <About />
+      <Contact />
       <Footer />
     </div>
   );
