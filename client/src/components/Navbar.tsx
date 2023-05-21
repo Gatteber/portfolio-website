@@ -7,7 +7,7 @@ import gaLogo from '../assets/logo.svg';
 
 const Navbar = () => {
   const {width} = useViewPort();
-  const breakpoint = 620;
+  const breakpoint = 640;
   const [displayMenu, setDisplayMenu] = useState<boolean>(false);
 
   const handleChange = () => {

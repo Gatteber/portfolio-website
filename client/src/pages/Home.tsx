@@ -10,11 +10,21 @@ const Home = ({data}: IHomeData) => {
   console.log(data);
   return (
     <div className="pt-20 flex flex-col items-center text-slate-700 dark:text-slate-50 gap-5">
-      <h1 className="text-3xl font-poppins">&gt; &gt;Hi, I'm Garrett.</h1>
-      <img className="w-60 h-60 bg-red-950 rounded-full"></img>
+      <h1 className="text-3xl font-poppins">
+        &gt; &gt;
+        <span className="text-orange-600 dark:text-purple-500">Hi</span>, I'm
+        Garrett.
+      </h1>
+      <img className="w-60 h-60 bg-purple-900 rounded-full"></img>
       <h2 className="font-poppins">
-        I like to build stuff. Check out my <button>Projects</button> or{' '}
-        <button>Resume</button>
+        I like to build stuff. Check out my{' '}
+        <button className="outline outline-1 rounded-lg p-1 hover:bg-orange-600 hover:text-purple-900 dark:hover:bg-purple-500 dark:hover:text-orange-300 transition duration-200">
+          Projects
+        </button>{' '}
+        or{' '}
+        <button className="outline outline-1 rounded-lg p-1 hover:bg-orange-600 hover:text-purple-900 dark:hover:bg-purple-500 dark:hover:text-orange-300 transition duration-200">
+          Resume
+        </button>
       </h2>
       <div className="text-xl text-red-500 dark:text-blue-500">
         Here's the data: {data && data.name}
