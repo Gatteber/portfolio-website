@@ -5,6 +5,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import HorizontalBreak from './components/HorizontalBreak';
 
 function App() {
   const [testApiData, setTestApiData] = useState();
@@ -19,8 +20,11 @@ function App() {
     <div className="bg-zinc-100 dark:bg-zinc-700 transition duration-250">
       <Navbar />
       <Home data={testApiData} />
+      <HorizontalBreak />
       <Projects />
+      <HorizontalBreak />
       <About />
+      <HorizontalBreak />
       <Contact />
       <Footer />
     </div>

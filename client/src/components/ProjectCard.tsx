@@ -15,12 +15,12 @@ const ProjectCard = () => {
               <li>Live</li>
             </ul>
           </div>
-          <div className="flex">
+          <div className="flex flex-col">
             <p>{proj.description}</p>
             <img
               src="#"
               alt="Project Image name"
-              className="bg-purple-900 w-48 h-48"
+              className="bg-purple-900 grow w-96 h-48"
             />
           </div>
         </div>
