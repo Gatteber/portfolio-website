@@ -20,11 +20,11 @@ function App() {
     <div className="bg-zinc-100 dark:bg-zinc-700 transition duration-250">
       <Navbar />
       <Home data={testApiData} />
-      <HorizontalBreak />
+      <HorizontalBreak width={'w-32'} />
       <Projects />
-      <HorizontalBreak />
+      <HorizontalBreak width={'w-32'} />
       <About />
-      <HorizontalBreak />
+      <HorizontalBreak width={'w-32'} />
       <Contact />
       <Footer />
     </div>

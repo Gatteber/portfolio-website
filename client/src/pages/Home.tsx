@@ -18,7 +18,7 @@ const Home = ({data}: IHomeData) => {
         Garrett.
       </h1>
       <h2 className="text-xl">I'm a front-end engineer located in Japan.</h2>
-      <HorizontalBreak />
+      <HorizontalBreak width={'w-32'} />
       <img className="w-60 h-60 bg-purple-900 rounded-full"></img>
       <h2>
         I like to build stuff. Check out my{' '}

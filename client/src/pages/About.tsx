@@ -1,8 +1,14 @@
-const SmallHorizonalLine = () => {
-  return (
-    <hr className="w-8 h-1 mx-auto my-4 bg-purple-900 border-0 md:my-10 dark:bg-orange-300" />
-  );
-};
+import HorizontalBreak from '../components/HorizontalBreak';
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiSass,
+  SiTailwindcss,
+  SiExpress,
+} from 'react-icons/si';
 
 const About = () => {
   return (
@@ -10,7 +16,7 @@ const About = () => {
       <h4 className="text-3xl">
         <span className="text-orange-600 dark:text-purple-500">A</span>bout me
       </h4>
-      <p className="p-2 sm:pl-5 sm:pr-5">
+      <p className="p-2 sm:px-5">
         I'm a web developer based in Japan. I was born in Denver, Colorado, in
         the United States. I graduated from Colorado State University. During
         University, I studied Biochemistry, Spanish, and History, ultimately
@@ -22,8 +28,8 @@ const About = () => {
         love teaching, and have enjoyed my time as a teacher, I feel that for my
         future, it is best for me to move on.
       </p>
-      <SmallHorizonalLine />
-      <p className="p-2 sm:pl-5 sm:pr-5">
+      <HorizontalBreak width={'w-8'} />
+      <p className="p-2 sm:px-5">
         I've always had a passion for technology. When I was a high-school and
         university student, I wrote some of my own plugins for World of Warcraft
         in simple lua, and often tweaked the plugins of others. I was often in
@@ -34,8 +40,8 @@ const About = () => {
         various different projects (Python, Java, even a little bit of C) before
         ultimately deciding that I enjoyed web development the most.
       </p>
-      <SmallHorizonalLine />
-      <p className="p-2 sm:pl-5 sm:pr-5">
+      <HorizontalBreak width={'w-8'} />
+      <p className="p-2 sm:px-5">
         Web development is my biggest interest in programming. The choices of
         technologies and combination of artistic skills along with programming
         skills makes for a good mix where I am both comfortable and passionate.
@@ -47,6 +53,45 @@ const About = () => {
         heart, though, React is still my favorite technology that I have used to
         date and it is the technology I have the most interest in.
       </p>
+      <HorizontalBreak width={'w-8'} />
+      <p className="pb-5">
+        <span className="text-orange-600 dark:text-purple-500">T</span>
+        echnologies I use:
+      </p>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="flex flex-col items-center">
+          <SiHtml5 />
+          <span>HTML</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiCss3 />
+          <span>CSS</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiJavascript />
+          <span>Javascript</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiTypescript />
+          <span>Typescript</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiReact />
+          <span>React</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiSass />
+          <span>Sass</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiTailwindcss />
+          <span>Tailwind CSS</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiExpress />
+          <span>Express</span>
+        </div>
+      </div>
     </article>
   );
 };
