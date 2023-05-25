@@ -8,20 +8,21 @@ import Footer from './components/Footer';
 import HorizontalBreak from './components/HorizontalBreak';
 
 function App() {
-  const [testApiData, setTestApiData] = useState();
-  const proxyUrl = '/api/v1';
+  const [projectList, setProjectList] = useState();
+  const projectProxyUrl = '/api/project_list';
 
   useEffect(() => {
-    fetch(proxyUrl)
+    fetch(projectProxyUrl)
       .then((res) => res.json())
-      .then((data) => setTestApiData(data));
+      .then((data) => setProjectList(data));
   }, []);
+
   return (
     <div className="bg-zinc-100 dark:bg-zinc-700 transition duration-250">
       <Navbar />
-      <Home data={testApiData} />
+      <Home />
       <HorizontalBreak width={'w-32'} />
-      <Projects />
+      <Projects projectList={projectList} />
       <HorizontalBreak width={'w-32'} />
       <About />
       <HorizontalBreak width={'w-32'} />

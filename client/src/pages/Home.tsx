@@ -1,17 +1,8 @@
 import HorizontalBreak from '../components/HorizontalBreak';
 
-type HomeData = {
-  name: string;
-};
-
-interface IHomeData {
-  data: HomeData | undefined;
-}
-
-const Home = ({data}: IHomeData) => {
-  console.log(data);
+const Home = () => {
   return (
-    <div className="pt-20 flex flex-col items-center font-poppins text-slate-700 dark:text-slate-50 gap-5">
+    <div className="pt-20 pb-20 flex flex-col items-center font-poppins text-slate-700 dark:text-slate-50 gap-5">
       <h1 className="text-3xl">
         &gt; &gt;
         <span className="text-orange-600 dark:text-purple-500">Hi</span>, I'm
@@ -30,9 +21,6 @@ const Home = ({data}: IHomeData) => {
           Resume
         </button>
       </h2>
-      <div className="text-xl text-red-500 dark:text-blue-500">
-        Here's the data: {data && data.name}
-      </div>
     </div>
   );
 };
