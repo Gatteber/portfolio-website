@@ -19,7 +19,7 @@ const Projects = ({projectList}: IProject) => {
       <h3 className="text-3xl">
         <span className="text-orange-600 dark:text-purple-500">P</span>rojects
       </h3>
-      <p>What I've built.</p>
+      <p className="mb-5">What I've built.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2">
         <ProjectCard projectList={projectList} />
       </div>

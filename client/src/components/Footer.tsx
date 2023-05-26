@@ -2,7 +2,7 @@ import {AiFillGithub} from 'react-icons/ai';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="mt-5">
       <a
         href="https://github.com/Gatteber"
         className="flex justify-center items-center bg-zinc-100 dark:bg-zinc-700 text-slate-700 dark:text-slate-50"

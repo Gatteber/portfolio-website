@@ -85,7 +85,7 @@ const About = () => {
         </div>
         <div className="flex flex-col items-center">
           <SiTailwindcss />
-          <span>Tailwind CSS</span>
+          <span>Tailwind</span>
         </div>
         <div className="flex flex-col items-center">
           <SiExpress />
