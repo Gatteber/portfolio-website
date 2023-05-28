@@ -1,15 +1,52 @@
+import {FormEvent, useState} from 'react';
 import useViewPort from '../hooks/useViewport';
 
+type contactFormInfo = {
+  firstName: string;
+  lastName: string;
+  subject: string;
+  email: string;
+  message: string;
+};
+
 const ContactForm = () => {
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const [contactFormInfo, setContactFormInfo] = useState<contactFormInfo>({
+    firstName: '',
+    lastName: '',
+    subject: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const value = e.target.value;
+    setContactFormInfo({
+      ...contactFormInfo,
+      [e.target.name]: value,
+    });
+  };
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('correctly handled submit');
+    console.log(contactFormInfo);
+    setContactFormInfo({
+      firstName: '',
+      lastName: '',
+      subject: '',
+      email: '',
+      message: '',
+    });
   };
   const {width} = useViewPort();
   const breakpoint = 768;
   return (
     <div className="p-5 outline outline-1 font-poppins md:px-10">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="space-y-4"
+        id="contactForm"
+      >
         <span className="flex justify-center text-xl">Let's get in touch.</span>
         <div className="md:grid md:grid-cols-2 md:gap-5">
           <div>
@@ -18,10 +55,13 @@ const ContactForm = () => {
             </label>
             <input
               type="text"
-              name=""
+              name="firstName"
+              value={contactFormInfo.firstName}
+              onChange={handleChange}
               id=""
               placeholder="John"
               className="mb-4"
+              aria-label="firstName"
               required
             />
           </div>
@@ -31,10 +71,13 @@ const ContactForm = () => {
             </label>
             <input
               type="text"
-              name=""
+              name="lastName"
+              value={contactFormInfo.lastName}
+              onChange={handleChange}
               id=""
               placeholder="Snow"
               className=""
+              aria-label="lastName"
               required
             />
           </div>
@@ -46,10 +89,13 @@ const ContactForm = () => {
             </label>
             <input
               type="email"
-              name=""
+              name="email"
+              value={contactFormInfo.email}
+              onChange={handleChange}
               id=""
               placeholder="stuck@thewall.net"
               className=""
+              aria-label="email"
               required
             />
           </div>
@@ -59,10 +105,13 @@ const ContactForm = () => {
             </label>
             <input
               type="text"
-              name=""
+              name="subject"
+              value={contactFormInfo.subject}
+              onChange={handleChange}
               id=""
               placeholder="Become the Lord of Light!"
               className=""
+              aria-label="subject"
               required
             />
           </div>
@@ -72,13 +121,16 @@ const ContactForm = () => {
             Message
           </label>
           <textarea
-            name=""
+            name="message"
             id=""
+            value={contactFormInfo.message}
+            onChange={handleChange}
             //check for screensize, return larger message if deskstop view
             cols={width < breakpoint ? 21 : 46}
             rows={8}
             className="p-1"
             placeholder="Enter your message..."
+            aria-label="message"
             required
           ></textarea>
         </div>

@@ -4,10 +4,10 @@ const nodemailer = require('nodemailer');
 const sendEmail = async () => {
   const messageOutput = `
     <h1>You received a message from {person}</h1>
-    <h2>Subject: </h2>
+    <h2>Subject: {subject} </h2>
     <ul>
-        <li>First name: {firstname}</li>
-        <li>Last name: {lastname}</li>
+        <li>First name: {firstName}</li>
+        <li>Last name: {lastName}</li>
     </ul>
     <p>{message}</p>
     `;
@@ -38,3 +38,5 @@ const sendEmail = async () => {
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 };
+
+module.exports = sendEmail;
