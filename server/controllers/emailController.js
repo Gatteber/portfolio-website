@@ -1,42 +1,34 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const sendEmail = async () => {
+const sendEmail = async (firstName, lastName, email, subject, message) => {
   const messageOutput = `
-    <h1>You received a message from {person}</h1>
-    <h2>Subject: {subject} </h2>
+    <h1>You received a message from ${email}</h1>
+    <h2>Subject: ${subject} </h2>
     <ul>
-        <li>First name: {firstName}</li>
-        <li>Last name: {lastName}</li>
+        <li>First name: ${firstName}</li>
+        <li>Last name: ${lastName}</li>
     </ul>
-    <p>{message}</p>
+    <p>${message}</p>
     `;
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: false, // true for 465, false for other ports
+    service: 'gmail',
     auth: {
-      user: process.env.SMTP_USER, // generated ethereal user
-      pass: process.env.SMTP_PASS, // generated ethereal password
+      user: process.env.SMTP_USER, // replace with your user's email in .env
+      pass: process.env.SMTP_PASS, // replace with your password in .env
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: 'bar@example.com, baz@example.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world?', // plain text body
-    html: '<b>Hello world?</b>', // html body
+    from: `"GA - Dev Nodemailer" <${process.env.SMTP_USER}>`, // sender address
+    to: process.env.SMTP_RECEIVER_EMAIL, // replace with your email in .env
+    subject: 'You have a new contact request!',
+    text: 'Hello world? Something went wrong, so you got a plain text body', // plain text body fallback
+    html: messageOutput,
   });
-
   console.log('Message sent: %s', info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 };
 
 module.exports = sendEmail;

@@ -6,7 +6,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     proxy: {
-      '/api/project_list' : 'http://localhost:5000/'
+      '/api/project_list' : 'http://localhost:5000/',
+      '/api/send_email' : 'http://localhost:5000/'
     }
   },
   test: {

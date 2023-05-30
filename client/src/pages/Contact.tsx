@@ -28,8 +28,20 @@ const ContactForm = () => {
     });
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const apiUrlProxy = '/api/send_email';
     e.preventDefault();
-    console.log(contactFormInfo);
+    fetch(apiUrlProxy, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(contactFormInfo),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => alert(data.message))
+      .catch((err) => console.log(`ERROR: ${err}`));
     setContactFormInfo({
       firstName: '',
       lastName: '',

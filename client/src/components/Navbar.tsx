@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 sticky top-0 bg-zinc-100 dark:bg-zinc-700">
       {width < breakpoint ? (
         <div className="flex justify-between">
           <div onClick={handleChange} className="p-1" aria-label="test">

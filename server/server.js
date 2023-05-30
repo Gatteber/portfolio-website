@@ -9,27 +9,18 @@ const sendEmail = require('./controllers/emailController');
 //Middleware
 app.use(express.json());
 app.use(bodyParser.json());
+//cors is necessary to receive data from frontend, otherwise error.
 app.use(cors());
 
 app.get('/api/project_list', (req, res) => {
-  res.send(projectList);
+  res.status(200).send(projectList);
 });
 
 app.post('/api/send_email', async (req, res) => {
-  const {email} = req.body;
-
-  //TODO: fix email controller function with email information. decide how to handle the post request and update in server.js
-  //this means you need to pass the params to the function
-  //Add axios to frontend and have it make a post request in the handlesubmit function
-
+  //destructure request body from frontend
+  const {firstName, lastName, email, subject, message} = req.body;
   try {
-    const send_to = '';
-    const send_from = '';
-    const reply_to = '';
-    const subject = '';
-    const message = '';
-
-    await sendEmail();
+    await sendEmail(firstName, lastName, email, subject, message);
     res
       .status(200)
       .json({success: true, message: 'Email sent. Thanks for reaching out!'});
