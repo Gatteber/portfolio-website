@@ -62,7 +62,11 @@ const ContactForm = () => {
         <span className="flex justify-center text-xl">Let's get in touch.</span>
         <div className="md:grid md:grid-cols-2 md:gap-5">
           <div>
-            <label htmlFor="" className="block text-sm mb-1">
+            <label
+              htmlFor="firstname"
+              className="block text-sm mb-1"
+              title="Please enter your first name."
+            >
               First name
             </label>
             <input
@@ -70,15 +74,20 @@ const ContactForm = () => {
               name="firstName"
               value={contactFormInfo.firstName}
               onChange={handleChange}
-              id=""
+              id="firstname"
               placeholder="John"
-              className="mb-4"
+              className="p-1 bg-zinc-50 outline outline-slate-700 outline-1 focus:outline-purple-900 focus:shadow-purple-900 focus:shadow-sm dark:bg-zinc-600 dark:outline-slate-50 dark:focus:outline-orange-300 dark:focus:shadow-orange-300"
               aria-label="firstName"
+              title="Please enter your first name."
               required
             />
           </div>
           <div>
-            <label htmlFor="" className="block text-sm mb-1">
+            <label
+              htmlFor="lastname"
+              className="block text-sm mb-1"
+              title="Please enter your last name."
+            >
               Last name
             </label>
             <input
@@ -86,17 +95,22 @@ const ContactForm = () => {
               name="lastName"
               value={contactFormInfo.lastName}
               onChange={handleChange}
-              id=""
+              id="lastname"
               placeholder="Snow"
-              className=""
+              className="p-1 bg-zinc-50 outline outline-slate-700 outline-1 focus:outline-purple-900 focus:shadow-purple-900 focus:shadow-sm dark:bg-zinc-600 dark:outline-slate-50 dark:focus:outline-orange-300 dark:focus:shadow-orange-300"
               aria-label="lastName"
+              title="Please enter your last name."
               required
             />
           </div>
         </div>
         <div className="md:grid md:grid-cols-2 md:gap-5">
           <div>
-            <label htmlFor="" className="block text-sm mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm mb-1"
+              title="Please enter your email address."
+            >
               Email
             </label>
             <input
@@ -104,15 +118,20 @@ const ContactForm = () => {
               name="email"
               value={contactFormInfo.email}
               onChange={handleChange}
-              id=""
+              id="email"
               placeholder="stuck@thewall.net"
-              className=""
+              className="p-1 bg-zinc-50 outline outline-slate-700 outline-1 focus:outline-purple-900 focus:shadow-purple-900 focus:shadow-sm dark:bg-zinc-600 dark:outline-slate-50 dark:focus:outline-orange-300 dark:focus:shadow-orange-300"
               aria-label="email"
+              title="Please enter your email address."
               required
             />
           </div>
           <div>
-            <label htmlFor="" className="block text-sm mb-1">
+            <label
+              htmlFor="subject"
+              className="block text-sm mb-1"
+              title="Please enter the email's subject."
+            >
               Subject
             </label>
             <input
@@ -120,29 +139,35 @@ const ContactForm = () => {
               name="subject"
               value={contactFormInfo.subject}
               onChange={handleChange}
-              id=""
+              id="subject"
               placeholder="Become the Lord of Light!"
-              className=""
+              className="p-1 bg-zinc-50 outline outline-slate-700 outline-1 focus:outline-purple-900 focus:shadow-purple-900 focus:shadow-sm dark:bg-zinc-600 dark:outline-slate-50 dark:focus:outline-orange-300 dark:focus:shadow-orange-300"
               aria-label="subject"
+              title="Please enter the email's subject."
               required
             />
           </div>
         </div>
         <div>
-          <label htmlFor="" className="block text-sm mb-1">
+          <label
+            htmlFor="message"
+            className="block text-sm mb-1"
+            title="Please enter the message for the user."
+          >
             Message
           </label>
           <textarea
             name="message"
-            id=""
+            id="message"
             value={contactFormInfo.message}
             onChange={handleChange}
             //check for screensize, return larger message if deskstop view
             cols={width < breakpoint ? 21 : 46}
             rows={8}
-            className="p-1"
+            className="p-2 bg-zinc-50 outline outline-slate-700 outline-1 focus:outline-purple-900 focus:shadow-purple-900 focus:shadow-sm dark:bg-zinc-600 dark:outline-slate-50 dark:focus:outline-orange-300 dark:focus:shadow-orange-300"
             placeholder="Enter your message..."
             aria-label="message"
+            title="Please enter the message for the user."
             required
           ></textarea>
         </div>
