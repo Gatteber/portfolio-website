@@ -1,7 +1,11 @@
 import {Link} from 'react-scroll';
 import useViewPort from '../hooks/useViewport';
 
-const NavLinks = () => {
+interface Props {
+  handleClick?: () => void;
+}
+
+const NavLinks = ({handleClick}: Props) => {
   const {width} = useViewPort();
   const breakpoint = 640;
 
@@ -36,6 +40,7 @@ const NavLinks = () => {
           duration={500}
           onSetActive={(e) => handleSetActive(e)}
           onSetInactive={(e) => handleSetInactive(e)}
+          onClick={handleClick}
         >
           Home
         </Link>
@@ -50,6 +55,7 @@ const NavLinks = () => {
           duration={500}
           onSetActive={(e) => handleSetActive(e)}
           onSetInactive={(e) => handleSetInactive(e)}
+          onClick={handleClick}
         >
           Projects
         </Link>
@@ -64,6 +70,7 @@ const NavLinks = () => {
           duration={500}
           onSetActive={(e) => handleSetActive(e)}
           onSetInactive={(e) => handleSetInactive(e)}
+          onClick={handleClick}
         >
           About
         </Link>
@@ -79,6 +86,7 @@ const NavLinks = () => {
           duration={500}
           onSetActive={(e) => handleSetActive(e)}
           onSetInactive={(e) => handleSetInactive(e)}
+          onClick={handleClick}
         >
           Contact
         </Link>

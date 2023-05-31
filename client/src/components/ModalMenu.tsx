@@ -13,7 +13,7 @@ const ModalMenu = ({handleClick}: Props) => {
         </button>
       </div>
       <ul className="flex flex-col gap-5 items-center text-2xl">
-        <NavLinks />
+        <NavLinks handleClick={handleClick} />
       </ul>
     </div>
   );
