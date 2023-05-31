@@ -1,3 +1,5 @@
+import NavLinks from './NavLinks';
+
 interface Props {
   handleClick: () => void;
 }
@@ -11,10 +13,7 @@ const ModalMenu = ({handleClick}: Props) => {
         </button>
       </div>
       <ul className="flex flex-col gap-5 items-center text-2xl">
-        <li className="text-orange-600 dark:text-orange-300">Home</li>
-        <li>Projects</li>
-        <li>About</li>
-        <li>Contact</li>
+        <NavLinks />
       </ul>
     </div>
   );
