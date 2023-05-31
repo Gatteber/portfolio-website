@@ -184,12 +184,15 @@ const ContactForm = () => {
 };
 const Contact = () => {
   return (
-    <div className="flex flex-col items-center text-slate-700 dark:text-slate-50">
+    <article
+      className="flex flex-col items-center text-slate-700 dark:text-slate-50"
+      id="contact"
+    >
       <h5 className="text-3xl mb-10">
         <span className="text-orange-600 dark:text-purple-500">C</span>ontact
       </h5>
       <ContactForm />
-    </div>
+    </article>
   );
 };
 export default Contact;

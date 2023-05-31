@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-scroll';
 import useViewPort from '../hooks/useViewport';
 import Hamburger from './Hamburger';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -12,6 +13,25 @@ const Navbar = () => {
 
   const handleChange = () => {
     displayMenu === false ? setDisplayMenu(true) : setDisplayMenu(false);
+  };
+
+  //no classname on <Link> tag, so need this to find li items and add active for active class
+  const handleSetActive = (e: string) => {
+    const searchString = e.charAt(0).toUpperCase() + e.slice(1);
+    for (const li of document.querySelectorAll('li')) {
+      if (li.textContent?.includes(searchString)) {
+        li.classList.add('active');
+      }
+    }
+  };
+
+  const handleSetInactive = (e: string) => {
+    const searchString = e.charAt(0).toUpperCase() + e.slice(1);
+    for (const li of document.querySelectorAll('li')) {
+      if (li.textContent?.includes(searchString)) {
+        li.classList.remove('active');
+      }
+    }
   };
 
   return (
@@ -32,10 +52,62 @@ const Navbar = () => {
               className="w-12 h-12 mr-auto"
             />
             <ul className="flex gap-2 items-start text-slate-700 dark:text-slate-50">
-              <li className="text-orange-600 dark:text-orange-300">Home</li>
-              <li>Projects</li>
-              <li>About</li>
-              <li>Contact</li>
+              <li className="cursor-pointer hover:text-orange-600 transition transition-duration-500 [&.active]:text-orange-600 dark:hover:text-purple-600 dark:[&.active]:text-purple-600">
+                <Link
+                  activeClass="active"
+                  to="home"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onSetActive={(e) => handleSetActive(e)}
+                  onSetInactive={(e) => handleSetInactive(e)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="cursor-pointer hover:text-orange-600 transition transition-duration-500 [&.active]:text-orange-600 dark:hover:text-purple-600 dark:[&.active]:text-purple-600">
+                <Link
+                  activeClass="active"
+                  to="projects"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onSetActive={(e) => handleSetActive(e)}
+                  onSetInactive={(e) => handleSetInactive(e)}
+                >
+                  Projects
+                </Link>
+              </li>
+              <li className="cursor-pointer hover:text-orange-600 transition transition-duration-500 [&.active]:text-orange-600 dark:hover:text-purple-600 dark:[&.active]:text-purple-600">
+                <Link
+                  activeClass="active"
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onSetActive={(e) => handleSetActive(e)}
+                  onSetInactive={(e) => handleSetInactive(e)}
+                >
+                  About
+                </Link>
+              </li>
+              <li className="cursor-pointer hover:text-orange-600 transition transition-duration-500 [&.active]:text-orange-600 dark:hover:text-purple-600 dark:[&.active]:text-purple-600">
+                <Link
+                  activeClass="active"
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={-205}
+                  duration={500}
+                  onSetActive={(e) => handleSetActive(e)}
+                  onSetInactive={(e) => handleSetInactive(e)}
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
             <ThemeSwitcher />
           </div>

@@ -12,7 +12,10 @@ import {
 
 const About = () => {
   return (
-    <article className="flex flex-col items-center gap-2 font-poppins text-xl text-slate-700 dark:text-slate-50">
+    <article
+      className="flex flex-col items-center gap-2 font-poppins text-xl text-slate-700 dark:text-slate-50"
+      id="about"
+    >
       <h4 className="text-3xl">
         <span className="text-orange-600 dark:text-purple-500">A</span>bout me
       </h4>
@@ -58,7 +61,7 @@ const About = () => {
         <span className="text-orange-600 dark:text-purple-500">T</span>
         echnologies I use:
       </p>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-2 mb-20">
         <div className="flex flex-col items-center">
           <SiHtml5 />
           <span>HTML</span>

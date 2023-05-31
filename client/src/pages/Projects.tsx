@@ -15,7 +15,10 @@ interface IProject {
 
 const Projects = ({projectList}: IProject) => {
   return (
-    <article className="flex flex-col items-center font-poppins text-slate-700 dark:text-slate-50">
+    <article
+      className="flex flex-col items-center font-poppins text-slate-700 dark:text-slate-50"
+      id="projects"
+    >
       <h3 className="text-3xl">
         <span className="text-orange-600 dark:text-purple-500">P</span>rojects
       </h3>
