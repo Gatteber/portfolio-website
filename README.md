@@ -1,6 +1,6 @@
 # Garrett's portfolio website
 
-A portfolio website designed and made by myself. It is a Single page application driven primarily by React.
+A portfolio website designed and made by myself. It is a Single page application driven primarily by React and Typescript, with some simple backend api calls for the server.
 
 ## Preview
 
