@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const projectList = require('./api/components/projectList');
 const sendEmail = require('./controllers/emailController');
-const path = requires('path');
+const path = require('path');
 
 //Middleware
 app.use(express.json());
