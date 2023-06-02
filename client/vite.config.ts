@@ -16,4 +16,7 @@ export default defineConfig({
     setupFiles: './setupTests.ts',
   },
   plugins: [react()],
+  build: {
+    outDir:"../server/dist/"
+  }
 })
