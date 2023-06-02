@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 const projectList = require('./api/components/projectList');
 const sendEmail = require('./controllers/emailController');
+const path = requires('path');
 
 //Middleware
 app.use(express.json());
@@ -28,6 +29,15 @@ app.post('/api/send_email', async (req, res) => {
     res.status(400).json(err.message);
   }
 });
+
+//Serve static assets if production
+if (process.env.NODE_ENV === 'production') {
+  //get static folder
+  app.use(express.static('dist/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

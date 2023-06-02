@@ -1,18 +1,18 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Navbar from '../components/Navbar';
-import mediaQuery from 'css-mediaquery';
+// import mediaQuery from 'css-mediaquery';
 
-const createMatchMedia = (width: number) => (query: string) => ({
-  matches: mediaQuery.match(query, {width}),
-  media: '',
-  onchange: () => undefined,
-  addListener: () => undefined,
-  removeListener: () => undefined,
-  addEventListener: () => undefined,
-  removeEventListener: () => undefined,
-  dispatchEvent: () => true,
-});
+// const createMatchMedia = (width: number) => (query: string) => ({
+//   matches: mediaQuery.match(query, {width}),
+//   media: '',
+//   onchange: () => undefined,
+//   addListener: () => undefined,
+//   removeListener: () => undefined,
+//   addEventListener: () => undefined,
+//   removeEventListener: () => undefined,
+//   dispatchEvent: () => true,
+// });
 
 describe('Navbar component', () => {
   it('has a Home, Projects, About, and Contact list', () => {
