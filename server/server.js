@@ -30,9 +30,11 @@ app.post('/api/send_email', async (req, res) => {
   }
 });
 
-//Serve static assets if production
-const pathName = path.join(__dirname, '/../../server/dist');
-app.use(express.static(pathName));
+//Serve static assets
+app.use(express.static(path.join(__dirname, './dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './dist', 'index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
