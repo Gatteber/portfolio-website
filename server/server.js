@@ -31,13 +31,8 @@ app.post('/api/send_email', async (req, res) => {
 });
 
 //Serve static assets if production
-if (process.env.NODE_ENV === 'production') {
-  //get static folder
-  app.use(express.static('dist/build'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
-  });
-}
+const pathName = path.join(__dirname, '/../../client/dist');
+app.use(express.static(pathName));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
